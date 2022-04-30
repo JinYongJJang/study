@@ -9,6 +9,12 @@
 <body>
     <div id="app">
         <app-header></app-header>
+        <app-content></app-content>
+    </div>
+
+    <div id="app2">
+        <app-header></app-header>
+        <app-content></app-content>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -18,6 +24,15 @@
         });
         new Vue({
             el: "#app",
+            components: {
+                'app-content':{
+                    template: '<div>Content</div>'
+                }
+            }
+        })
+
+        new Vue({
+            el: "#app2"
         })
     </script>
 </body>
