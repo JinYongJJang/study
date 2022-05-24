@@ -1,4 +1,4 @@
-package com.fastcampus.ch2;
+package com.fastcampus.app;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -36,7 +36,7 @@ public class MethodCall {
 		
 		while(it.hasNext()) {
 			String key = (String)it.next();
-			result = result.replace("${" + key + "}", (String)map.get(key));   // id:${id}  -> id:asdf 변환
+			result = result.replace("${" + key + "}", (String)map.get(key));   // id:${id}  -> id:asdf 蹂��솚
 		}
 		
 		System.out.println(result); // id:asdf

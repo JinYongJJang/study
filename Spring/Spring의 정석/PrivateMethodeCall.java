@@ -1,4 +1,4 @@
-package com.fastcampus.ch2;
+package com.fastcampus.app;
 
 public class PrivateMethodeCall {
 	public static void main(String[] args) throws Exception {

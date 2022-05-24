@@ -1,4 +1,4 @@
-package com.fastcampus.ch2;
+package com.fastcampus.app;
 
 import javax.servlet.http.HttpServletRequest;
 

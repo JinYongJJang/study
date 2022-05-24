@@ -1,4 +1,4 @@
-package com.fastcampus.ch2;
+package com.fastcampus.app;
 
 import java.io.IOException;
 import java.io.InputStream;
