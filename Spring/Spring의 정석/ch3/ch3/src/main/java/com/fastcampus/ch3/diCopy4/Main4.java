@@ -13,7 +13,7 @@ import java.util.Set;
 
 @Component class Car{
     @Resource Engine engine;
-    @Resource
+    @Autowired
     Door door;
 
     @Override
@@ -35,8 +35,10 @@ class AppContext {
         map = new HashMap();
         doComponentScan();
         doAutoWired();
+        doResource();
 
     }
+
     private void doComponentScan(){
         try {
             // 패키지 내의 클래스 목록 가져오기
@@ -73,10 +75,22 @@ class AppContext {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
-//        private void doResource(){
-//
-//        }
+    private void doResource() {
+        try {
+            // map에 저장된 객체의 iv 중에 @Resource 붙어 있으면
+            // map에서 iv의 이름에 맞는 객체를 찾아서 연결(객체의 주소를 iv 저장)
+            for(Object bean : map.values()){
+                for(Field fld : bean.getClass().getDeclaredFields()){
+                    if(fld.getAnnotation(Resource.class) != null){ // by Name
+                        fld.set(bean, getBean(fld.getName()));
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     Object getBean(String key){  // by Name
